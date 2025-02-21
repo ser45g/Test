@@ -11,8 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
-                sh '''
-                cd myapp
+               
                
                 
             }
@@ -20,8 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                sh '''
-                cd myapp
+              
               
             }
         }
