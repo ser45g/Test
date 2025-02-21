@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'Docker_Cloud_Agent'
+            label 'Docker_cloud_agent'
             }
       }
     triggers {
