@@ -1,28 +1,37 @@
-pipeline{
-  agent{
-    node{
-      label Docker_Cloud_Agent
-    }
-  }
-  triggers{
-    pollSCM '* /2 * * * *'
-  }
-  stages{
-    stage("Build"){
-      steps{
-        echo "Hello World"
-        echo "Building"
+pipeline {
+    agent { 
+        node {
+            label 'Docker_Cloud_Agent'
+            }
       }
+    triggers {
+        pollSCM '* * * * *'
     }
-    stage("Test"){
-      steps{
-        echo "Testing"
-      }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building.."
+                sh '''
+                cd myapp
+               
+                
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                cd myapp
+              
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
+            }
+        }
     }
-    stage("Deliver"){
-      steps{
-        echo "Delivering"
-      }
-    }
-  }
 }
